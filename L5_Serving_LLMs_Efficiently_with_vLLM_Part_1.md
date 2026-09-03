@@ -7,9 +7,9 @@
 
 This lecture covers three core techniques that power modern LLM serving engines, specifically vLLM:
 
-1. **Continuous Batching** — keeps the GPU busy
-2. **PagedAttention** — manages KV cache memory without waste
-3. **Prefix Caching** — skips KV recomputation when requests share content
+1. [**Continuous Batching** — keeps the GPU busy](3-continuos-batching)
+2. [**PagedAttention** — manages KV cache memory without waste](#5-pagedattention)
+3. [**Prefix Caching** — skips KV recomputation when requests share content](#6-prefix-caching)
 
 ---
 
