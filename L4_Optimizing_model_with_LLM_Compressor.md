@@ -56,14 +56,14 @@ This lecture covers the practical application of quantization using the open-sou
 - Good as a **baseline**, but not recommended for production use.
 
 #### AWQ (Activation Aware Weight Quantization)
-- Based on the observation that **not all weights are equally important**.
+- A post-training quantization technique, based on the observation that **not all weights are equally important**.
 - Some weights, when changed even slightly, cause large changes in model outputs; others can be rounded aggressively with minimal effect.
 - Uses **activation magnitudes** during a calibration pass to identify which weights are which.
 - Weights corresponding to **large activations** are treated more carefully; the rest are compressed more aggressively.
 - Computationally lighter than GPTQ — calibration runs faster and requires less VRAM.
 
 #### GPTQ
-- Takes a **mathematically rigorous** approach.
+- A post-training quantization technique. Takes a **mathematically rigorous** approach.
 - Core idea: given that quantization will introduce error, how can we compensate for that error in the remaining weights so the overall output changes as little as possible?
 - Computes the **Hessian of the loss** with respect to the weights — a measure of curvature indicating how sensitive model output is to changes in each specific weight.
 - Works through weights **layer by layer**: quantizes each one and updates remaining weights to compensate.
